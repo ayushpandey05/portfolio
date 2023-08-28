@@ -2,9 +2,9 @@ import { View } from "@/goku/View";
 import { AppProps } from "next/app";
 import { useEffect } from "react";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
-import { NavbarLaptop } from "./NavBarLaptop";
+import { NavbarLaptop } from "@/src/app/NavbarLaptop";
 
-import { NavbarMobile } from "./NavBarMobile";
+import { NavbarMobile } from "@/src/app/NavbarMobile";
 
 const MOBILE_SIZE = 900;
 const App = ({ Component, pageProps }: AppProps) => {
