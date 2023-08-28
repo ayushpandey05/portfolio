@@ -10,9 +10,9 @@ function createStyles<T extends string>(
 
 const flatten = (style: CSSProperties | CSSProperties[]) => {
   if (Array.isArray(style)) {
-    let newStyle = {};
+    let newStyle: any = {};
     for (let index = 0; index < style.length; index++) {
-      let styleDoc = style[index];
+      let styleDoc: any = style[index];
       for (let key in styleDoc) {
         newStyle[key] = styleDoc[key];
       }
