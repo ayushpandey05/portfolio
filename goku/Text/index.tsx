@@ -43,13 +43,13 @@ const Text: FC<TextProps> = (props) => {
     restStyle = { ...restStyle, ...getNumberOfLineStyle(numberOfLines) };
   }
   if (whiteSpace) {
-    restStyle["whiteSpace"] = whiteSpace; //rohit bansal 20-12-18 to override whiteSpace:pre if given
+    // restStyle["whiteSpace"] = whiteSpace; //rohit bansal 20-12-18 to override whiteSpace:pre if given
   }
   if (lineHeight) {
     if (typeof lineHeight === "number") {
       lineHeight = lineHeight + "px";
     }
-    restStyle["lineHeight"] = lineHeight;
+    // restStyle["lineHeight"] = lineHeight;
   }
   return (
     <text {...rest} style={{ fontFamily: "Roboto", ...restStyle }}>
