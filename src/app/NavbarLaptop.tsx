@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: 16,
     marginRight: 16,
+    cursor: "pointer",
   },
   activeItemContainer: {
     backgroundColor: "#464567",
