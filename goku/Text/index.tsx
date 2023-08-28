@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties, FC, ReactNode } from "react";
 import { StyleSheet } from "../StyleSheet";
 // import { getNumberOfLineStyle } from "../Utility";
 
@@ -25,7 +25,7 @@ const getNumberOfLineStyle = (numberOfLines: number) => {
 interface TextProps {
   style?: CSSProperties;
   numberOfLines?: number;
-  children?: string;
+  children?: ReactNode;
 }
 
 const Text: FC<TextProps> = (props) => {

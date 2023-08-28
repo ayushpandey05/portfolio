@@ -3,13 +3,14 @@ import { tabs } from "./tabs";
 import { StyleSheet } from "@/goku/StyleSheet";
 import { useRouter } from "next/router";
 import { Text } from "@/goku/Text";
+import Image from "next/image";
 
 const NavbarMobile = () => {
   const router = useRouter();
   const { pathname } = router;
   return (
     <View
-      style={{ height: 62, backgroundColor: "#2E2E47", flexDirection: "row" }}
+      style={{ height: 80, backgroundColor: "#2E2E47", flexDirection: "row" }}
     >
       {tabs.map((item) => {
         const isActive = pathname == item.route;
@@ -24,7 +25,14 @@ const NavbarMobile = () => {
                 ...(isActive && styles.activeItemContainer),
               }}
             >
-              <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flex: 1,
+                }}
+              >
+                <Image src={item.icon} alt="" />
                 <Text>{item.label}</Text>
               </View>
             </View>
@@ -45,6 +53,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 8,
     cursor: "pointer",
+    gap: 16,
+    borderRadius: 8,
   },
   container: { flex: 1, padding: 8 },
   activeItemContainer: {
