@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { tabs } from "./tabs";
 import { Text } from "@/goku/Text";
 import Image from "next/image";
-import { HomeIconImg } from "../assets/images";
 
 const NavbarLaptop = () => {
   const router = useRouter();
@@ -26,7 +25,10 @@ const NavbarLaptop = () => {
             }}
             key={`laptop-tab-${item.route}`}
           >
-            <Image src={item.icon} alt={item.label} />
+            <Image
+              src={isActive ? item.activeIcon : item.icon}
+              alt={item.label}
+            />
             <Text>{item.label}</Text>
           </View>
         );

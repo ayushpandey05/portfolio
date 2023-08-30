@@ -32,8 +32,8 @@ const NavbarMobile = () => {
                   flex: 1,
                 }}
               >
-                <Image src={item.icon} alt="" />
-                <Text>{item.label}</Text>
+                <Image src={isActive ? item.activeIcon : item.icon} alt="" />
+                {/* <Text>{item.label}</Text> */}
               </View>
             </View>
           </View>

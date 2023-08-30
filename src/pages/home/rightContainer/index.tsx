@@ -1,7 +1,14 @@
 import { StyleSheet } from "@/goku/StyleSheet";
 import { Text } from "@/goku/Text";
 import { View } from "@/goku/View";
-import { EmailGreenIconImg, FiverrIconImg, FreelancerIconImg, HomeIconImg, LinkedinIconImg, UpworkIconImg } from "@/src/assets/images";
+import {
+  EmailGreenIconImg,
+  FiverrIconImg,
+  FreelancerIconImg,
+  LinkedinIconImg,
+  UpworkIconImg,
+} from "@/src/assets/images";
+import { LinkIcon } from "@/src/components/LinkIcon";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -12,7 +19,7 @@ const links = [
   },
   {
     icon: LinkedinIconImg,
-    link: "https://www.freelancer.com/u/ayushpandey05",
+    link: "https://www.linkedin.com/in/ayushpandey05/",
   },
   {
     icon: UpworkIconImg,
@@ -20,7 +27,7 @@ const links = [
   },
   {
     icon: FreelancerIconImg,
-    link: "https://www.linkedin.com/in/ayushpandey05/",
+    link: "https://www.freelancer.com/u/ayushpandey05",
   },
 ];
 
@@ -29,13 +36,15 @@ const RightContainer = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 48, textAlign: 'center' }}>{"Want to hire me?"}</Text>
+      <Text style={{ fontSize: 48, textAlign: "center" }}>
+        {"Want to hire me?"}
+      </Text>
       <View style={{ alignItems: "center", gap: 24 }}>
         <Text
           style={{
             fontSize: 20,
             color: "rgba(255, 255, 255, 0.65)",
-            textAlign: 'center'
+            textAlign: "center",
           }}
         >
           {"I strive to reply within an hour."}
@@ -49,10 +58,10 @@ const RightContainer = () => {
             borderRadius: 16,
             flexDirection: "row",
             alignItems: "center",
-            cursor: 'pointer'
+            cursor: "pointer",
           }}
-          onClick={()=>{
-            router.push('mailto:ayushpandey0508@gmail.com')
+          onClick={() => {
+            router.push("mailto:ayushpandey0508@gmail.com");
           }}
         >
           <Image src={EmailGreenIconImg} alt="" />
@@ -104,24 +113,7 @@ const RightContainer = () => {
         }}
       >
         {links.map((item, index) => (
-          <View
-            onClick={() => {
-                window.open(item.link, "_blank");
-            //   router.push(item.link, {}, {});
-            }}
-            key={`link-${index}}`}
-            style={{
-              width: 62,
-              height: 62,
-              borderRadius: 16,
-              backgroundColor: "#464567",
-              justifyContent: "center",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-          >
-            <Image src={item.icon} alt="" />
-          </View>
+          <LinkIcon key={`link-${index}}`} {...item} />
         ))}
       </View>
     </View>
