@@ -3,26 +3,40 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 html.light {
-  --background: #f3f1ea;
-  --foreground: #0e0f14;
+  --background: #eef1f6;
+  --foreground: #0e1218;
   --surface: #ffffff;
-  --border: #a8a295;
-  --muted: #3a4150;
+  --border: #b7becc;
+  --muted: #3d4656;
   --accent: #d6ff3f;
   --accent-foreground: #0c0d10;
-  --accent-text: #2a3d00;
+  --accent-text: #243800;
+  --panel: #ffffff;
+  --panel-glass: rgba(255, 255, 255, 0.78);
+  --panel-border: #b7becc;
+  --grid: rgba(36, 56, 0, 0.07);
+  --wash: rgba(214, 255, 63, 0.18);
+  --bloom: rgba(214, 255, 63, 0.35);
+  --danger: #c43c3c;
   color-scheme: light;
 }
 
 html.dark {
-  --background: #0c0d10;
-  --foreground: #f2f2ee;
-  --surface: #14161b;
-  --border: #23262d;
-  --muted: #8a8f98;
+  --background: #07080b;
+  --foreground: #eef1f6;
+  --surface: #10131a;
+  --border: #2a3140;
+  --muted: #8b93a7;
   --accent: #d6ff3f;
   --accent-foreground: #0c0d10;
   --accent-text: #d6ff3f;
+  --panel: #10131a;
+  --panel-glass: rgba(16, 19, 26, 0.72);
+  --panel-border: #2a3140;
+  --grid: rgba(214, 255, 63, 0.055);
+  --wash: rgba(214, 255, 63, 0.12);
+  --bloom: rgba(214, 255, 63, 0.45);
+  --danger: #ff7b7b;
   color-scheme: dark;
 }
 
@@ -35,10 +49,15 @@ html.dark {
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-text: var(--accent-text);
-  --font-sans: var(--font-geist-sans);
+  --color-panel: var(--panel);
+  --color-panel-glass: var(--panel-glass);
+  --color-panel-border: var(--panel-border);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
   --animate-float: float 6s ease-in-out infinite;
   --animate-tick: tick 2.4s ease-in-out infinite;
+  --animate-signal: signal 2.8s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -61,6 +80,18 @@ html.dark {
   }
 }
 
+@keyframes signal {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleX(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -77,18 +108,41 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   transition:
     background-color 180ms ease,
     color 180ms ease;
 }
 
-html.light .bg-surface {
-  box-shadow:
-    0 1px 2px rgba(14, 15, 20, 0.05),
-    0 8px 24px rgba(14, 15, 20, 0.04);
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 20%, transparent 75%);
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  z-index: -1;
+  width: min(900px, 120vw);
+  height: min(560px, 70vh);
+  translate: -50% 0;
+  background: radial-gradient(ellipse at center, var(--wash), transparent 70%);
+  filter: blur(8px);
 }
 
 ::selection {
@@ -99,4 +153,42 @@ html.light .bg-surface {
 :focus-visible {
   outline: 2px solid var(--accent-text);
   outline-offset: 3px;
+}
+
+.panel-corners {
+  position: relative;
+}
+
+.panel-corners::before,
+.panel-corners::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent-text);
+  border-style: solid;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.panel-corners::before {
+  top: 8px;
+  left: 8px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.panel-corners::after {
+  right: 8px;
+  bottom: 8px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.bloom-ring {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-text) 35%, transparent),
+    0 0 18px color-mix(in srgb, var(--bloom) 55%, transparent);
+}
+
+.cta-bloom:hover {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 0 28px color-mix(in srgb, var(--bloom) 50%, transparent);
 }

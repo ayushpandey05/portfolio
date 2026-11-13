@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useSyncExternalStore,
   type ReactNode,
@@ -68,16 +69,21 @@ function writeTheme(theme: Theme) {
   emit();
 }
 
-if (typeof window !== "undefined") {
-  currentTheme = readStoredTheme();
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const theme = useSyncExternalStore(
     subscribe,
     getSnapshot,
     getServerSnapshot,
   );
+
+  useEffect(() => {
+    const stored = readStoredTheme();
+    if (stored !== currentTheme) {
+      writeTheme(stored);
+      return;
+    }
+    applyTheme(stored);
+  }, []);
 
   const setTheme = useCallback((next: Theme) => {
     writeTheme(next);

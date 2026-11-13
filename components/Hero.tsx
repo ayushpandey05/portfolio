@@ -2,19 +2,29 @@ import { ArrowRight, FileText } from "lucide-react";
 import { profile } from "@/content/resume";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import { Reveal } from "@/components/Reveal";
+import { Button } from "@/components/ui/Button";
+import { SignalLabel } from "@/components/ui/SignalLabel";
 
 export function Hero() {
   return (
     <section
       id="top"
       aria-labelledby="hero-heading"
-      className="px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24"
+      className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24"
     >
-      <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+      <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
         <Reveal>
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-accent-text">
-            {profile.label}
-          </p>
+          <div className="mb-5 flex flex-col items-start gap-3">
+            <div className="inline-flex items-center gap-2 rounded-xl border border-panel-border bg-panel-glass px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted backdrop-blur-md">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-accent-text animate-tick"
+              />
+              System online
+            </div>
+            <SignalLabel>{profile.label}</SignalLabel>
+          </div>
+
           <h1
             id="hero-heading"
             className="text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
@@ -24,32 +34,32 @@ export function Hero() {
           <p className="mt-4 text-xl text-foreground/85 sm:text-2xl">
             {profile.role}
           </p>
-          <p className="mt-4 max-w-xl text-base leading-7 text-foreground/80 sm:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-7 text-foreground/75 sm:text-lg">
             {profile.summary}
           </p>
 
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <a
-              href="#work"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition hover:brightness-95 sm:w-auto"
-            >
+            <Button href="#work" variant="primary">
               View work
               <ArrowRight size={16} aria-hidden="true" />
-            </a>
-            <a
-              href={profile.resumePath}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-border px-6 text-sm font-semibold text-foreground transition hover:border-foreground/40 hover:bg-surface sm:w-auto"
-            >
+            </Button>
+            <Button href={profile.resumePath} variant="secondary" external>
               <FileText size={16} aria-hidden="true" />
               Resume
-            </a>
+            </Button>
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="flex justify-center lg:justify-end">
-          <PhoneMockup />
+        <Reveal delay={0.1} className="flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-[340px]">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,var(--wash),transparent_70%)] blur-md"
+            />
+            <div className="panel-corners relative rounded-[1.75rem] border border-panel-border bg-panel-glass p-3 backdrop-blur-md">
+              <PhoneMockup />
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
