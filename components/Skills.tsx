@@ -9,7 +9,7 @@ export function Skills() {
         {skills.map((group, index) => (
           <Reveal key={group.group} delay={index * 0.04}>
             <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
-              <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+              <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-accent-text">
                 {group.group}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">

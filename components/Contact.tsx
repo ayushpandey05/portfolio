@@ -24,7 +24,7 @@ export function Contact() {
             </a>
             <a
               href={profile.phoneHref}
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-border px-6 text-sm font-semibold text-foreground transition hover:border-muted hover:bg-background sm:w-auto"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-border px-6 text-sm font-semibold text-foreground transition hover:border-foreground/40 hover:bg-background sm:w-auto"
             >
               <Phone size={16} aria-hidden="true" />
               {profile.phone}
@@ -33,7 +33,7 @@ export function Contact() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-border px-6 text-sm font-semibold text-foreground transition hover:border-muted hover:bg-background sm:w-auto"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-border px-6 text-sm font-semibold text-foreground transition hover:border-foreground/40 hover:bg-background sm:w-auto"
             >
               <ExternalLink size={16} aria-hidden="true" />
               LinkedIn
@@ -42,7 +42,7 @@ export function Contact() {
               href={profile.resumePath}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-border px-6 text-sm font-semibold text-foreground transition hover:border-muted hover:bg-background sm:w-auto"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-border px-6 text-sm font-semibold text-foreground transition hover:border-foreground/40 hover:bg-background sm:w-auto"
             >
               <Download size={16} aria-hidden="true" />
               Download resume

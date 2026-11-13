@@ -11,7 +11,7 @@ export function About() {
             {profile.about}
           </p>
           <aside className="rounded-2xl border border-border bg-surface p-6">
-            <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent-text">
               Education
             </p>
             <h3 className="mt-3 text-lg font-semibold tracking-tight text-foreground">

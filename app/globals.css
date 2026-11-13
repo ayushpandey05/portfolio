@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
-:root {
+@custom-variant dark (&:where(.dark, .dark *));
+
+html.light {
+  --background: #f3f1ea;
+  --foreground: #0e0f14;
+  --surface: #ffffff;
+  --border: #a8a295;
+  --muted: #3a4150;
+  --accent: #d6ff3f;
+  --accent-foreground: #0c0d10;
+  --accent-text: #2a3d00;
+  color-scheme: light;
+}
+
+html.dark {
   --background: #0c0d10;
   --foreground: #f2f2ee;
   --surface: #14161b;
@@ -8,6 +22,8 @@
   --muted: #8a8f98;
   --accent: #d6ff3f;
   --accent-foreground: #0c0d10;
+  --accent-text: #d6ff3f;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -18,6 +34,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-float: float 6s ease-in-out infinite;
@@ -63,14 +80,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+html.light .bg-surface {
+  box-shadow:
+    0 1px 2px rgba(14, 15, 20, 0.05),
+    0 8px 24px rgba(14, 15, 20, 0.04);
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
   color: var(--foreground);
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-text);
   outline-offset: 3px;
 }

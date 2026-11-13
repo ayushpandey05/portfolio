@@ -25,13 +25,13 @@ export function SelectedWork() {
               <ul className="mt-5 space-y-2.5 text-sm leading-6 text-foreground/90">
                 {project.built.slice(0, 3).map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-text" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-accent">
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-accent-text">
                 {project.impact}
               </p>
 

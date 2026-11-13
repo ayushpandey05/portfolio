@@ -25,7 +25,7 @@ export function Section({
         <div className="mb-8 flex items-center gap-3 sm:mb-10">
           <div>
             {eyebrow ? (
-              <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-accent-text">
                 {eyebrow}
               </p>
             ) : null}
@@ -38,7 +38,7 @@ export function Section({
           </div>
           <span
             aria-hidden="true"
-            className="mt-1 h-px flex-1 bg-gradient-to-r from-accent/80 to-transparent"
+            className="mt-1 h-px flex-1 bg-gradient-to-r from-accent-text/80 to-transparent"
           />
         </div>
         {children}

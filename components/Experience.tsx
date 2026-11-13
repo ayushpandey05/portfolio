@@ -16,7 +16,7 @@ export function Experience() {
             <li className="relative">
               <span
                 aria-hidden="true"
-                className="absolute -left-[1.9rem] top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-background sm:-left-[2.4rem]"
+                className="absolute -left-[1.9rem] top-1.5 h-3 w-3 rounded-full border-2 border-accent-text bg-background sm:-left-[2.4rem]"
               />
               <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-6">
                 <div>
