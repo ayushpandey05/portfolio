@@ -1,0 +1,88 @@
+"use client";
+
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { navLinks, profile } from "@/content/resume";
+
+export function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-md">
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <a
+          href="#top"
+          className="font-mono text-sm font-semibold tracking-[0.22em] text-foreground"
+        >
+          {profile.wordmark}
+        </a>
+
+        <ul className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="font-mono text-xs uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+        </button>
+      </nav>
+
+      {open ? (
+        <div
+          id="mobile-menu"
+          className="border-t border-border bg-background md:hidden"
+        >
+          <ul className="mx-auto flex w-full max-w-[1200px] flex-col px-4 py-4 sm:px-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={close}
+                  className="flex min-h-11 items-center font-mono text-sm uppercase tracking-[0.16em] text-foreground"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </header>
+  );
+}
