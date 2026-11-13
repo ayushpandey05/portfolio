@@ -9,6 +9,8 @@ export const profile = {
   location: "Mumbai",
   label: "SDE II · MUMBAI",
   email: "ayushpandey0508@gmail.com",
+  phone: "+91 8949616512",
+  phoneHref: "tel:+918949616512",
   linkedin: "https://linkedin.com/in/ayushpandey05",
   resumePath: "/Ayush_Pandey_Resume.pdf",
   summary:
