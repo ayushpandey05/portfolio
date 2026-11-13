@@ -74,7 +74,7 @@ export default function OpenGraphImage() {
           <span>·</span>
           <span>New Architecture</span>
           <span>·</span>
-          <span>~1s faster startup</span>
+          <span>4s → 200ms startup</span>
           <span>·</span>
           <span>~30% smaller app</span>
         </div>

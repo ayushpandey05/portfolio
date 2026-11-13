@@ -36,7 +36,7 @@ export const stats = [
     label: "React Native New Arch",
   },
   {
-    value: "1s faster",
+    value: "4s → 200ms",
     label: "Startup time improvement",
   },
   {
@@ -57,10 +57,10 @@ export const projects = [
       "Led React Native architecture, planning, PR reviews, and iOS/Android releases.",
       "Migrated to a newer React Native version and New Architecture, including native-level fixes and dependency patches.",
       "Designed TickHandler with useFastTick / useFastTicks for token-based live updates outside Redux.",
-      "Moved instrument-master processing to Go APIs backed by PostgreSQL and Redis, cutting startup by ~1 second.",
+      "Moved instrument-master processing to Go APIs backed by PostgreSQL and Redis, cutting startup from ~4s to ~200ms.",
       "Shipped Explore, Holdings, Positions, Orders, Stock Details, Watchlist, Profile, and Wallet experiences.",
     ],
-    impact: "~1s faster startup · New Architecture migration · production trading flows",
+    impact: "4s → 200ms startup · New Architecture migration · production trading flows",
     stack: [
       "React Native",
       "New Architecture",
