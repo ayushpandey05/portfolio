@@ -15,7 +15,7 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
         <Reveal>
           <div className="mb-5 flex flex-col items-start gap-3">
-            <div className="inline-flex items-center gap-2 rounded-xl border border-panel-border bg-panel-glass px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted backdrop-blur-md">
+            <div className="glass-surface inline-flex items-center gap-2 rounded-xl px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
               <span
                 aria-hidden="true"
                 className="h-1.5 w-1.5 rounded-full bg-accent-text animate-tick"
@@ -56,7 +56,7 @@ export function Hero() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,var(--wash),transparent_70%)] blur-md"
             />
-            <div className="panel-corners relative rounded-[1.75rem] border border-panel-border bg-panel-glass p-3 backdrop-blur-md">
+            <div className="glass-surface panel-corners relative rounded-[1.75rem] p-3">
               <PhoneMockup />
             </div>
           </div>

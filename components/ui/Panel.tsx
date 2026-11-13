@@ -17,12 +17,12 @@ export function Panel({
 }: PanelProps) {
   const surface =
     variant === "glass"
-      ? "border-panel-border bg-panel-glass backdrop-blur-xl"
-      : "border-panel-border bg-panel";
+      ? "glass-surface"
+      : "border border-panel-border bg-panel";
 
   return (
     <Tag
-      className={`rounded-2xl border ${surface} ${
+      className={`rounded-2xl ${surface} ${
         corners ? "panel-corners" : ""
       } ${className}`}
     >

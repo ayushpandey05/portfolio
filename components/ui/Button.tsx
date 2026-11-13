@@ -18,7 +18,7 @@ export function Button({
   const styles =
     variant === "primary"
       ? "bg-accent text-accent-foreground cta-bloom hover:brightness-95"
-      : "border border-panel-border bg-transparent text-foreground hover:border-accent-text/50 hover:bg-panel";
+      : "glass-surface text-foreground hover:border-accent-text/50";
 
   return (
     <a

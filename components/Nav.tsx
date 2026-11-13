@@ -27,7 +27,7 @@ export function Nav() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-panel-border bg-panel-glass backdrop-blur-xl">
+    <header className="glass-surface sticky top-0 z-50 border-x-0 border-t-0">
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
@@ -76,7 +76,7 @@ export function Nav() {
       {open ? (
         <div
           id="mobile-menu"
-          className="border-t border-panel-border bg-panel-glass backdrop-blur-xl md:hidden"
+          className="glass-surface border-x-0 border-b-0 md:hidden"
         >
           <ul className="mx-auto flex w-full max-w-[1200px] flex-col px-4 py-4 sm:px-6">
             {navLinks.map((link) => (
